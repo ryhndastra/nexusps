@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #050816;
+  --bg-secondary: #0b1026;
+
+  --primary: #7c3aed;
+  --primary-light: #9333ea;
+
+  --accent: #22d3ee;
+
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+
+  --border-soft: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+  font-family: Inter, sans-serif;
+
+  overflow-x: hidden;
+}
+
+/* selection */
+::selection {
+  background: rgba(124, 58, 237, 0.35);
+}
+
+/* smooth transitions */
+.smooth-transition {
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* floating logo */
+.hero-logo {
+  filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.45));
+
+  animation: floatLogo 5s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* animated gradient text */
+.animated-gradient-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #d8b4fe 20%,
+    #8b5cf6 40%,
+    #c084fc 60%,
+    #ffffff 80%
+  );
+
+  background-size: 200% auto;
+
+  color: transparent;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  animation: gradientFlow 3.5s linear infinite alternate;
+}
+
+@keyframes gradientFlow {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 100% center;
+  }
+}
+
+/* noise overlay */
+.noise {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.035;
+
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+
+  pointer-events: none;
+}
+
+/* glass navbar */
+.glass-nav {
+  background: rgba(8, 5, 20, 0.55);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* feature card */
+.feature-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease,
+    background 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(139, 92, 246, 0.3);
+
+  background: linear-gradient(
+    180deg,
+    rgba(139, 92, 246, 0.12),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+/* subtle grid */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+  background-size: 60px 60px;
+}
+
+.gold-glow {
+  animation: goldPulse 4s ease-in-out infinite;
+}
+
+@keyframes goldPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 rgba(250, 204, 21, 0),
+      0 0 80px rgba(250, 204, 21, 0.08);
+  }
+
+  50% {
+    box-shadow:
+      0 0 40px rgba(250, 204, 21, 0.12),
+      0 0 120px rgba(250, 204, 21, 0.18);
+  }
+}
+
+/* luxury gold animated text */
+.luxury-gold-text {
+  background: linear-gradient(
+    120deg,
+    #fff6cc 0%,
+    #fde68a 15%,
+    #facc15 30%,
+    #fff7d6 45%,
+    #f59e0b 60%,
+    #fde68a 75%,
+    #fff8dc 100%
+  );
+
+  background-size: 200% auto;
+
+  color: transparent;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  animation: luxuryGoldFlow 8s linear infinite;
+}
+
+@keyframes luxuryGoldFlow {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
