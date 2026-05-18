@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import { Motion } from "motion-v";
 import { Menu, X } from "lucide-vue-next";
 import { assets } from "~/utils/assets";
 
@@ -13,6 +12,8 @@ const showNavbar = ref(true);
 let scrollTimeout: ReturnType<typeof setTimeout>;
 
 const handleScroll = () => {
+  if (mobileMenu.value) return;
+
   showNavbar.value = false;
 
   clearTimeout(scrollTimeout);
@@ -23,7 +24,7 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll, { passive: true });
 });
 
 onBeforeUnmount(() => {
@@ -32,30 +33,21 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <Motion
-    :initial="{
-      opacity: 0,
-      y: -30,
-    }"
-    :animate="{
-      opacity: showNavbar ? 1 : 0,
-      y: showNavbar ? 0 : -120,
-    }"
-    :transition="{
-      duration: 0.45,
-      ease: [0.22, 1, 0.36, 1],
-    }"
-    class="fixed top-0 left-0 z-50 w-full"
+  <header
+    class="fixed left-0 top-0 z-50 w-full transition duration-300"
+    :class="showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-24 opacity-0'"
   >
-    <div class="mx-auto flex justify-center pt-6">
+    <div class="mx-auto flex justify-center px-4 pt-4 sm:pt-6">
       <nav
-        class="flex h-16 items-center gap-10 rounded-full border border-white/10 bg-black/30 px-6 backdrop-blur-2xl"
+        class="flex h-14 max-w-full items-center gap-4 rounded-full border border-white/10 bg-black/40 px-4 backdrop-blur-xl sm:h-16 sm:gap-10 sm:px-6 sm:backdrop-blur-2xl"
       >
         <!-- LOGO -->
         <img
           :src="assets.logo"
           alt="Nexus"
-          class="h-9 object-contain opacity-90"
+          class="h-8 object-contain opacity-90 sm:h-9"
+          fetchpriority="high"
+          decoding="async"
         />
 
         <!-- DESKTOP LINKS -->
@@ -121,5 +113,5 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </Transition>
-  </Motion>
+  </header>
 </template>

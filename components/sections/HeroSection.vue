@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { Motion } from "motion-v";
 import { assets } from "~/utils/assets";
 </script>
 
 <template>
   <section
-    class="relative min-h-screen overflow-hidden bg-[#05010d] text-white"
+    class="relative min-h-svh overflow-hidden bg-[#05010d] text-white"
   >
     <!-- BACKGROUND -->
     <div class="absolute inset-0">
@@ -13,7 +12,9 @@ import { assets } from "~/utils/assets";
       <img
         :src="assets.background"
         alt="Nexus Background"
-        class="absolute inset-0 h-full w-full object-cover object-center opacity-55"
+        class="absolute inset-0 h-full w-full object-cover object-center opacity-45 sm:opacity-55"
+        fetchpriority="high"
+        decoding="async"
       />
 
       <!-- overlay -->
@@ -32,17 +33,17 @@ import { assets } from "~/utils/assets";
 
       <!-- center glow -->
       <div
-        class="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/10 blur-[140px]"
+        class="hero-heavy-effect absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/10 blur-[140px]"
       />
 
       <!-- left ambient -->
       <div
-        class="absolute left-[-120px] top-[20%] h-[400px] w-[400px] rounded-full bg-fuchsia-500/10 blur-[120px]"
+        class="hero-heavy-effect absolute left-[-120px] top-[20%] h-[400px] w-[400px] rounded-full bg-fuchsia-500/10 blur-[120px]"
       />
 
       <!-- right ambient -->
       <div
-        class="absolute bottom-[-150px] right-[-120px] h-[450px] w-[450px] rounded-full bg-violet-600/10 blur-[140px]"
+        class="hero-heavy-effect absolute bottom-[-150px] right-[-120px] h-[450px] w-[450px] rounded-full bg-violet-600/10 blur-[140px]"
       />
 
       <!-- bottom fade -->
@@ -53,137 +54,89 @@ import { assets } from "~/utils/assets";
 
     <!-- HERO -->
     <div
-      class="relative z-10 mx-auto flex min-h-screen items-center px-8 pt-24 lg:max-w-7xl lg:px-12"
+      class="relative z-10 mx-auto flex min-h-svh items-center px-5 pb-16 pt-28 sm:px-8 lg:max-w-7xl lg:px-12 lg:py-24"
     >
-      <div class="grid w-full items-center gap-20 lg:grid-cols-2">
+      <div class="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <!-- LEFT -->
         <div>
           <!-- badge -->
-          <Motion
-            :initial="{
-              opacity: 0,
-              y: 18,
-              scale: 0.96,
-            }"
-            :animate="{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-            }"
-            :transition="{
-              duration: 0.7,
-              ease: [0.22, 1, 0.36, 1],
-            }"
-          >
+          <div class="reveal-on-scroll">
             <div
-              class="mb-6 inline-flex items-center gap-3 rounded-full border border-violet-500/20 bg-black/30 px-5 py-2 backdrop-blur-md"
+              class="mb-5 inline-flex max-w-full items-center gap-3 rounded-full border border-violet-500/20 bg-black/30 px-4 py-2 backdrop-blur-md sm:mb-6 sm:px-5"
             >
               <div class="status-online-dot h-2.5 w-2.5 rounded-full" />
 
-              <span class="text-sm text-zinc-300">
+              <span class="text-xs text-zinc-300 sm:text-sm">
                 Server Online • 124 Players
               </span>
             </div>
-          </Motion>
+          </div>
 
           <!-- small text -->
-          <Motion
-            :initial="{ opacity: 0, y: 20 }"
-            :animate="{ opacity: 1, y: 0 }"
-            :transition="{ duration: 0.6, delay: 0.1 }"
-          >
+          <div class="reveal-on-scroll" style="--reveal-delay: 80ms">
             <p
-              class="mb-5 text-sm uppercase tracking-[0.35em] text-violet-300/70"
+              class="mb-4 text-xs uppercase tracking-[0.24em] text-violet-300/70 sm:mb-5 sm:text-sm sm:tracking-[0.35em]"
             >
               Nexus Private Server
             </p>
-          </Motion>
+          </div>
 
           <!-- title -->
-          <Motion
-            :initial="{ opacity: 0, y: 30 }"
-            :animate="{ opacity: 1, y: 0 }"
-            :transition="{
-              duration: 0.8,
-              delay: 0.15,
-              ease: [0.22, 1, 0.36, 1],
-            }"
-          >
-            <h1 class="max-w-xl text-6xl font-black leading-[1.02] lg:text-7xl">
+          <div class="reveal-on-scroll" style="--reveal-delay: 160ms">
+            <h1 class="max-w-xl text-[clamp(2.7rem,12vw,4rem)] font-black leading-[1.02] sm:text-6xl lg:text-7xl">
               Explore The
 
               <span class="animated-gradient-text"> Cosmic </span>
 
               Side Of Growtopia
             </h1>
-          </Motion>
+          </div>
 
           <!-- desc -->
-          <Motion
-            :initial="{ opacity: 0, y: 25 }"
-            :animate="{ opacity: 1, y: 0 }"
-            :transition="{
-              duration: 0.7,
-              delay: 0.25,
-              ease: [0.22, 1, 0.36, 1],
-            }"
-          >
-            <p class="mt-8 max-w-xl text-lg leading-relaxed text-zinc-400">
+          <div class="reveal-on-scroll" style="--reveal-delay: 240ms">
+            <p class="mt-6 max-w-xl text-base leading-relaxed text-zinc-400 sm:mt-8 sm:text-lg">
               Enter an interdimensional Growtopia experience filled with custom
               systems, balanced progression, cosmic worlds, and a thriving
               competitive community.
             </p>
-          </Motion>
+          </div>
 
           <!-- buttons -->
-          <Motion
-            :initial="{ opacity: 0, y: 20 }"
-            :animate="{ opacity: 1, y: 0 }"
-            :transition="{
-              duration: 0.7,
-              delay: 0.35,
-              ease: [0.22, 1, 0.36, 1],
-            }"
-          >
-            <div class="mt-10 flex flex-wrap gap-4">
+          <div class="reveal-on-scroll" style="--reveal-delay: 320ms">
+            <div class="mt-8 grid gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:gap-4">
               <button
-                class="rounded-2xl bg-violet-600 px-8 py-4 font-semibold transition duration-300 hover:bg-violet-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.45)]"
+                class="rounded-2xl bg-violet-600 px-6 py-3.5 font-semibold transition duration-300 hover:bg-violet-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.45)] sm:px-8 sm:py-4"
               >
                 Start Playing
               </button>
 
               <button
-                class="rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-semibold text-zinc-200 backdrop-blur-md transition duration-300 hover:bg-white/10"
+                class="rounded-2xl border border-white/10 bg-white/5 px-6 py-3.5 font-semibold text-zinc-200 backdrop-blur-md transition duration-300 hover:bg-white/10 sm:px-8 sm:py-4"
               >
                 Join Discord
               </button>
             </div>
-          </Motion>
+          </div>
         </div>
 
         <!-- RIGHT -->
-        <Motion
-          :initial="{ opacity: 0, scale: 0.92, y: 30 }"
-          :animate="{ opacity: 1, scale: 1, y: 0 }"
-          :transition="{
-            duration: 1,
-            delay: 0.2,
-            ease: [0.22, 1, 0.36, 1],
-          }"
+        <div
+          class="reveal-on-scroll"
+          style="--reveal-delay: 240ms"
         >
-          <div class="relative flex items-center justify-center">
+          <div class="relative mx-auto flex w-full max-w-[420px] items-center justify-center lg:max-w-none">
             <!-- glow -->
             <div
-              class="absolute h-[550px] w-[550px] rounded-full bg-violet-600/20 blur-[120px]"
+              class="hero-heavy-effect absolute h-[320px] w-[320px] rounded-full bg-violet-600/20 blur-[80px] sm:h-[550px] sm:w-[550px] sm:blur-[120px]"
             />
 
             <!-- orbit ring -->
             <div
-              class="absolute h-[600px] w-[600px] rounded-full border border-violet-400/10"
+              class="absolute h-[min(78vw,600px)] w-[min(78vw,600px)] rounded-full border border-violet-400/10"
             />
 
             <div
-              class="absolute h-[720px] w-[720px] rounded-full border border-violet-400/5"
+              class="absolute h-[min(92vw,720px)] w-[min(92vw,720px)] rounded-full border border-violet-400/5"
             />
 
             <!-- floating particles -->
@@ -203,10 +156,12 @@ import { assets } from "~/utils/assets";
             <img
               :src="assets.title"
               alt="Nexus"
-              class="hero-logo relative z-10 w-full max-w-[700px] drop-shadow-[0_0_45px_rgba(139,92,246,0.45)]"
+              class="hero-logo relative z-10 w-full max-w-[700px] drop-shadow-[0_0_28px_rgba(139,92,246,0.38)] sm:drop-shadow-[0_0_45px_rgba(139,92,246,0.45)]"
+              fetchpriority="high"
+              decoding="async"
             />
           </div>
-        </Motion>
+        </div>
       </div>
     </div>
   </section>

@@ -1,26 +1,24 @@
 <script setup lang="ts">
-import { Motion } from "motion-v";
-
 const features = [
   {
     number: "01",
-    title: "blablablabla",
-    desc: "stupid fucking nigger, got hairy ass and some shit",
+    title: "Custom Economy",
+    desc: "Balanced progression, useful rewards, and a trading flow built for long-term play.",
   },
   {
     number: "02",
-    title: "Your Mom",
-    desc: "stupid fucking nigger, got hairy ass and some shit.",
+    title: "Active Events",
+    desc: "Fresh challenges and seasonal activities keep the server moving every week.",
   },
   {
     number: "03",
-    title: "Your Dad",
-    desc: "stupid fucking nigger, got hairy ass and some shit.",
+    title: "Stable Gameplay",
+    desc: "Optimized systems, fair rules, and clean moderation for a smoother experience.",
   },
   {
     number: "04",
-    title: "Your Sister",
-    desc: "stupid fucking nigger, got hairy ass and some shit.",
+    title: "Community First",
+    desc: "A friendly space for builders, traders, and competitive players to grow together.",
   },
 ];
 </script>
@@ -28,7 +26,7 @@ const features = [
 <template>
   <section
     id="features"
-    class="relative overflow-hidden pt-40 pb-40 text-white"
+    class="relative overflow-hidden px-0 py-24 text-white sm:py-32 lg:py-40"
   >
     <!-- TOP BLEND -->
     <div
@@ -40,51 +38,41 @@ const features = [
 
     <!-- AMBIENT -->
     <div
-      class="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/10 blur-[140px]"
+      class="section-heavy-effect absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/10 blur-[140px]"
     />
 
-    <div class="relative z-10 mx-auto max-w-7xl px-8 lg:px-12">
+    <div class="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
       <!-- HEADING -->
-      <Motion
-        :initial="{ opacity: 0, y: 30 }"
-        :while-in-view="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.6 }"
-        :viewport="{ once: true }"
-      >
+      <div class="reveal-on-scroll">
         <div class="mx-auto max-w-3xl text-center">
           <p class="mb-6 text-sm uppercase tracking-[0.4em] text-violet-300/60">
             Nexus Features
           </p>
 
-          <h2 class="text-5xl font-black leading-tight lg:text-7xl">
+          <h2 class="text-[clamp(2.35rem,10vw,4.5rem)] font-black leading-tight">
             Built For
 
-            <span class="animated-gradient-text"> Nigger </span>
+            <span class="animated-gradient-text"> Players </span>
           </h2>
 
-          <p class="mt-8 text-lg leading-relaxed text-zinc-400">
+          <p class="mt-6 text-base leading-relaxed text-zinc-400 sm:mt-8 sm:text-lg">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
             sapiente ipsum totam eveniet voluptas quod maiores quos eaque
             distinctio temporibus?.
           </p>
         </div>
-      </Motion>
+      </div>
 
       <!-- FEATURES -->
-      <div class="mt-32 space-y-10">
-        <Motion
+      <div class="mt-16 space-y-5 sm:mt-24 sm:space-y-7 lg:mt-32 lg:space-y-10">
+        <div
           v-for="(feature, index) in features"
           :key="feature.title"
-          :initial="{ opacity: 0, y: 50 }"
-          :while-in-view="{ opacity: 1, y: 0 }"
-          :transition="{
-            duration: 0.55,
-            delay: index * 0.08,
-          }"
-          :viewport="{ once: true }"
+          class="reveal-on-scroll"
+          :style="{ '--reveal-delay': `${index * 90}ms` }"
         >
           <div
-            class="group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-xl smooth-transition hover:border-violet-400/20 hover:bg-violet-500/[0.04]"
+            class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md smooth-transition hover:border-violet-400/20 hover:bg-violet-500/[0.04] sm:p-8 lg:rounded-[32px] lg:p-10 lg:backdrop-blur-xl"
           >
             <!-- glow -->
             <div
@@ -93,13 +81,13 @@ const features = [
 
             <!-- CONTENT -->
             <div
-              class="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between"
+              class="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8"
             >
               <!-- LEFT -->
-              <div class="flex items-start gap-6">
+              <div class="flex items-start gap-4 sm:gap-6">
                 <!-- NUMBER -->
                 <span
-                  class="text-5xl font-black text-violet-400/30 transition duration-300 group-hover:text-violet-300"
+                  class="w-14 shrink-0 text-4xl font-black text-violet-400/30 transition duration-300 group-hover:text-violet-300 sm:w-auto sm:text-5xl"
                 >
                   {{ feature.number }}
                 </span>
@@ -107,7 +95,7 @@ const features = [
                 <!-- TEXT -->
                 <div>
                   <h3
-                    class="text-3xl font-bold transition duration-300 group-hover:text-violet-300"
+                    class="text-2xl font-bold transition duration-300 group-hover:text-violet-300 sm:text-3xl"
                   >
                     {{ feature.title }}
                   </h3>
@@ -124,7 +112,7 @@ const features = [
               />
             </div>
           </div>
-        </Motion>
+        </div>
       </div>
     </div>
   </section>

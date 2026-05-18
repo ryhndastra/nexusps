@@ -30,6 +30,10 @@ body {
   overflow-x: hidden;
 }
 
+img {
+  max-width: 100%;
+}
+
 /* selection */
 ::selection {
   background: rgba(124, 58, 237, 0.35);
@@ -235,6 +239,62 @@ body {
   border: 1px solid rgba(74, 222, 128, 0.35);
 
   animation: statusRing 2.8s ease-out infinite;
+}
+
+.reveal-on-scroll {
+  --reveal-delay: 0ms;
+
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  transition:
+    opacity 0.55s ease-out var(--reveal-delay),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 640px) {
+  .hero-heavy-effect,
+  .section-heavy-effect {
+    display: none;
+  }
+
+  .grid-bg {
+    background-size: 42px 42px;
+  }
+
+  .smooth-transition {
+    transition:
+      border-color 0.25s ease,
+      background-color 0.25s ease;
+  }
+
+  .reveal-on-scroll {
+    transform: translate3d(0, 20px, 0);
+    transition:
+      opacity 0.42s ease-out var(--reveal-delay),
+      transform 0.42s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none !important;
+  }
 }
 
 @keyframes statusGlow {

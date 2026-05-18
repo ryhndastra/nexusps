@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Motion } from "motion-v";
 import { Crown } from "lucide-vue-next";
 import { assets } from "~/utils/assets";
 
@@ -30,7 +29,7 @@ const rankings = [
 </script>
 
 <template>
-  <section id="leaderboard" class="relative overflow-hidden py-40 text-white">
+  <section id="leaderboard" class="relative overflow-hidden py-24 text-white sm:py-32 lg:py-40">
     <!-- transition -->
     <div
       class="absolute top-0 left-0 h-40 w-full bg-gradient-to-b from-transparent to-[#05010d]"
@@ -42,51 +41,41 @@ const rankings = [
     />
 
     <div
-      class="absolute left-1/2 top-[25%] h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[160px]"
+      class="section-heavy-effect absolute left-1/2 top-[25%] h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[160px]"
     />
 
     <!-- stars -->
     <div class="stars absolute inset-0 opacity-20" />
 
-    <div class="relative z-10 mx-auto max-w-7xl px-8 lg:px-12">
+    <div class="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
       <!-- heading -->
-      <Motion
-        :initial="{ opacity: 0, y: 40 }"
-        :while-in-view="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.7 }"
-        :viewport="{ once: true }"
-      >
-        <div class="mb-28">
-          <p class="mb-5 text-sm uppercase tracking-[0.4em] text-violet-300/60">
+      <div class="reveal-on-scroll">
+        <div class="mb-14 sm:mb-20 lg:mb-28">
+          <p class="mb-4 text-xs uppercase tracking-[0.26em] text-violet-300/60 sm:mb-5 sm:text-sm sm:tracking-[0.4em]">
             Nexus Hall Of Fame
           </p>
 
           <h2
-            class="max-w-5xl text-6xl font-black leading-[0.95] tracking-tight lg:text-8xl"
+            class="max-w-5xl text-[clamp(2.8rem,12vw,6rem)] font-black leading-[0.98] tracking-tight lg:text-8xl"
           >
             <span class="animated-gradient-text"> Richest </span>
             Players
           </h2>
 
-          <p class="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-400">
+          <p class="mt-6 max-w-2xl text-base leading-relaxed text-zinc-400 sm:mt-8 sm:text-lg">
             The elite players controlling the Nexus economy.
           </p>
         </div>
-      </Motion>
+      </div>
 
       <!-- TOP PLAYER -->
-      <Motion
-        :initial="{ opacity: 0, y: 80 }"
-        :while-in-view="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.8 }"
-        :viewport="{ once: true }"
-      >
+      <div class="reveal-on-scroll" style="--reveal-delay: 80ms">
         <div
-          class="gold-glow relative overflow-hidden rounded-[42px] border border-yellow-300/20 bg-white/[0.03] p-10 backdrop-blur-2xl"
+          class="gold-glow relative overflow-hidden rounded-3xl border border-yellow-300/20 bg-white/[0.03] p-5 backdrop-blur-md sm:p-8 lg:rounded-[42px] lg:p-10 lg:backdrop-blur-2xl"
         >
           <!-- glow -->
           <div
-            class="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-400/10 blur-[140px]"
+            class="section-heavy-effect absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-400/10 blur-[140px]"
           />
 
           <!-- subtle inner ring -->
@@ -98,41 +87,43 @@ const rankings = [
           <div class="leaderboard-grid absolute inset-0 opacity-[0.04]" />
 
           <div
-            class="relative z-10 grid items-center gap-16 lg:grid-cols-[1fr_0.6fr]"
+            class="relative z-10 grid items-center gap-8 lg:grid-cols-[1fr_0.6fr] lg:gap-16"
           >
             <!-- LEFT -->
             <div>
               <div
-                class="mb-8 inline-flex items-center gap-4 rounded-full border border-yellow-300/20 bg-yellow-400/10 px-6 py-3 backdrop-blur-xl"
+                class="mb-6 inline-flex max-w-full items-center gap-3 rounded-full border border-yellow-300/20 bg-yellow-400/10 px-4 py-2.5 backdrop-blur-xl sm:mb-8 sm:gap-4 sm:px-6 sm:py-3"
               >
                 <Crown class="h-5 w-5 text-yellow-300" />
 
                 <span
-                  class="text-sm font-bold uppercase tracking-[0.25em] text-yellow-100"
+                  class="text-xs font-bold uppercase tracking-[0.16em] text-yellow-100 sm:text-sm sm:tracking-[0.25em]"
                 >
                   #1 Richest Player
                 </span>
               </div>
               <h3
-                class="luxury-gold-text text-7xl font-black tracking-tight lg:text-8xl"
+                class="luxury-gold-text text-[clamp(3rem,16vw,6rem)] font-black tracking-tight lg:text-8xl"
               >
                 {{ topPlayer.name }}
               </h3>
               <div
-                class="mt-10 inline-flex items-center gap-5 rounded-3xl border border-white/10 bg-black/30 px-7 py-5 backdrop-blur-xl"
+                class="mt-7 flex w-full max-w-full items-center gap-4 rounded-3xl border border-white/10 bg-black/30 px-4 py-4 backdrop-blur-xl sm:mt-10 sm:inline-flex sm:w-auto sm:gap-5 sm:px-7 sm:py-5"
               >
                 <img
                   :src="assets.wls"
                   alt="WLS"
-                  class="h-14 w-14 object-contain"
+                  class="h-10 w-10 shrink-0 object-contain sm:h-14 sm:w-14"
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 <div>
-                  <p class="text-sm uppercase tracking-[0.25em] text-zinc-500">
+                  <p class="text-xs uppercase tracking-[0.2em] text-zinc-500 sm:text-sm sm:tracking-[0.25em]">
                     Total WLS
                   </p>
 
-                  <p class="mt-1 text-5xl font-black text-yellow-100">
+                  <p class="mt-1 break-all text-[clamp(1.7rem,8vw,3rem)] font-black text-yellow-100">
                     {{ topPlayer.wls }}
                   </p>
                 </div>
@@ -143,7 +134,7 @@ const rankings = [
             <div class="space-y-6">
               <!-- #2 -->
               <div
-                class="group rounded-[30px] border border-zinc-300/10 bg-white/[0.03] p-7 backdrop-blur-xl transition duration-300 hover:border-zinc-200/20"
+                class="group rounded-3xl border border-zinc-300/10 bg-white/[0.03] p-5 backdrop-blur-xl transition duration-300 hover:border-zinc-200/20 sm:p-7"
               >
                 <div
                   class="mb-5 text-sm font-bold uppercase tracking-[0.25em] text-zinc-400"
@@ -151,21 +142,23 @@ const rankings = [
                   #2
                 </div>
 
-                <div class="flex items-center justify-between">
-                  <h4 class="text-4xl font-black">
+                <div class="grid gap-4 sm:flex sm:items-center sm:justify-between">
+                  <h4 class="text-3xl font-black sm:text-4xl">
                     {{ secondPlace.name }}
                   </h4>
 
                   <div
-                    class="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3"
+                    class="inline-flex w-fit max-w-full items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3"
                   >
                     <img
                       :src="assets.wls"
                       alt="WLS"
                       class="h-6 w-6 object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
 
-                    <span class="text-xl font-bold text-zinc-200">
+                    <span class="break-all text-lg font-bold text-zinc-200 sm:text-xl">
                       {{ secondPlace.wls }}
                     </span>
                   </div>
@@ -174,7 +167,7 @@ const rankings = [
 
               <!-- #3 -->
               <div
-                class="group rounded-[30px] border border-orange-300/10 bg-white/[0.03] p-7 backdrop-blur-xl transition duration-300 hover:border-orange-300/20"
+                class="group rounded-3xl border border-orange-300/10 bg-white/[0.03] p-5 backdrop-blur-xl transition duration-300 hover:border-orange-300/20 sm:p-7"
               >
                 <div
                   class="mb-5 text-sm font-bold uppercase tracking-[0.25em] text-orange-200/60"
@@ -182,21 +175,23 @@ const rankings = [
                   #3
                 </div>
 
-                <div class="flex items-center justify-between">
-                  <h4 class="text-4xl font-black">
+                <div class="grid gap-4 sm:flex sm:items-center sm:justify-between">
+                  <h4 class="text-3xl font-black sm:text-4xl">
                     {{ thirdPlace.name }}
                   </h4>
 
                   <div
-                    class="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3"
+                    class="inline-flex w-fit max-w-full items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3"
                   >
                     <img
                       :src="assets.wls"
                       alt="WLS"
                       class="h-6 w-6 object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
 
-                    <span class="text-xl font-bold text-orange-100">
+                    <span class="break-all text-lg font-bold text-orange-100 sm:text-xl">
                       {{ thirdPlace.wls }}
                     </span>
                   </div>
@@ -205,22 +200,18 @@ const rankings = [
             </div>
           </div>
         </div>
-      </Motion>
+      </div>
 
       <!-- lower rankings -->
-      <Motion
-        :initial="{ opacity: 0, y: 40 }"
-        :while-in-view="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.7, delay: 0.1 }"
-        :viewport="{ once: true }"
-      >
+      <div>
         <div
-          class="mt-20 overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl"
+          class="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md sm:mt-16 lg:mt-20 lg:rounded-[36px] lg:backdrop-blur-2xl"
         >
           <div
-            v-for="player in rankings"
+            v-for="(player, index) in rankings"
             :key="player.rank"
-            class="group relative flex items-center justify-between border-b border-white/5 px-7 py-5 transition duration-300 last:border-b-0 hover:bg-violet-500/[0.08]"
+            class="group reveal-on-scroll relative grid gap-3 border-b border-white/5 px-5 py-5 transition duration-300 last:border-b-0 hover:bg-violet-500/[0.08] sm:flex sm:items-center sm:justify-between sm:gap-6 sm:px-7"
+            :style="{ '--reveal-delay': `${index * 55}ms` }"
           >
             <!-- hover line -->
             <div
@@ -228,31 +219,37 @@ const rankings = [
             />
 
             <!-- left -->
-            <div class="flex items-center gap-6">
+            <div class="flex min-w-0 items-center gap-4 sm:gap-6">
               <span
-                class="text-2xl font-black tracking-tight text-violet-300/40"
+                class="w-12 shrink-0 text-2xl font-black tracking-tight text-violet-300/40"
               >
                 {{ player.rank }}
               </span>
 
-              <span class="text-3xl font-black tracking-tight">
+              <span class="min-w-0 truncate text-2xl font-black tracking-tight sm:text-3xl">
                 {{ player.name }}
               </span>
             </div>
 
             <!-- right -->
             <div
-              class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-black/20 px-5 py-3"
+              class="inline-flex w-fit max-w-full items-center gap-3 rounded-full border border-white/10 bg-black/20 px-4 py-2.5 sm:px-5 sm:py-3"
             >
-              <img :src="assets.wls" alt="WLS" class="h-5 w-5 object-contain" />
+              <img
+                :src="assets.wls"
+                alt="WLS"
+                class="h-5 w-5 shrink-0 object-contain"
+                loading="lazy"
+                decoding="async"
+              />
 
-              <span class="font-bold text-zinc-200">
+              <span class="break-all font-bold text-zinc-200">
                 {{ player.wls }}
               </span>
             </div>
           </div>
         </div>
-      </Motion>
+      </div>
     </div>
   </section>
 </template>
