@@ -4,6 +4,7 @@ import { assets } from "~/utils/assets";
 
 <template>
   <section
+    id="home"
     class="relative min-h-svh overflow-hidden bg-[#05010d] text-white"
   >
     <!-- BACKGROUND -->
@@ -83,7 +84,9 @@ import { assets } from "~/utils/assets";
 
           <!-- title -->
           <div class="reveal-on-scroll" style="--reveal-delay: 160ms">
-            <h1 class="max-w-xl text-[clamp(2.7rem,12vw,4rem)] font-black leading-[1.02] sm:text-6xl lg:text-7xl">
+            <h1
+              class="max-w-xl text-[clamp(2.7rem,12vw,4rem)] font-black leading-[1.02] sm:text-6xl lg:text-7xl"
+            >
               Explore The
 
               <span class="animated-gradient-text"> Cosmic </span>
@@ -94,7 +97,9 @@ import { assets } from "~/utils/assets";
 
           <!-- desc -->
           <div class="reveal-on-scroll" style="--reveal-delay: 240ms">
-            <p class="mt-6 max-w-xl text-base leading-relaxed text-zinc-400 sm:mt-8 sm:text-lg">
+            <p
+              class="mt-6 max-w-xl text-base leading-relaxed text-zinc-400 sm:mt-8 sm:text-lg"
+            >
               Enter an interdimensional Growtopia experience filled with custom
               systems, balanced progression, cosmic worlds, and a thriving
               competitive community.
@@ -120,11 +125,10 @@ import { assets } from "~/utils/assets";
         </div>
 
         <!-- RIGHT -->
-        <div
-          class="reveal-on-scroll"
-          style="--reveal-delay: 240ms"
-        >
-          <div class="relative mx-auto flex w-full max-w-[420px] items-center justify-center lg:max-w-none">
+        <div class="reveal-on-scroll" style="--reveal-delay: 240ms">
+          <div
+            class="relative mx-auto flex w-full max-w-[420px] items-center justify-center lg:max-w-none"
+          >
             <!-- glow -->
             <div
               class="hero-heavy-effect absolute h-[320px] w-[320px] rounded-full bg-violet-600/20 blur-[80px] sm:h-[550px] sm:w-[550px] sm:blur-[120px]"

@@ -3,7 +3,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 import { Menu, X } from "lucide-vue-next";
 import { assets } from "~/utils/assets";
 
-const navItems = ["Home", "Features", "Leaderboard", "Community"];
+const navItems = ["Home", "Features", "Leaderboard", "Tutorial", "Community"];
 
 const mobileMenu = ref(false);
 
@@ -54,7 +54,7 @@ onBeforeUnmount(() => {
         <ul class="hidden items-center gap-8 md:flex">
           <li v-for="item in navItems" :key="item">
             <a
-              href="#"
+              :href="`#${item.toLowerCase()}`"
               class="relative text-sm font-medium text-zinc-400 transition duration-300 hover:text-white"
             >
               {{ item }}
@@ -98,7 +98,7 @@ onBeforeUnmount(() => {
           <a
             v-for="item in navItems"
             :key="item"
-            href="#"
+            :href="`#${item.toLowerCase()}`"
             class="text-lg font-medium text-zinc-300 transition hover:text-white"
             @click="mobileMenu = false"
           >
