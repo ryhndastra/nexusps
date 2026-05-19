@@ -229,6 +229,18 @@ img {
   animation: statusGlow 2.8s ease-in-out infinite;
 }
 
+.status-offline-dot {
+  position: relative;
+
+  background: #f87171;
+
+  box-shadow:
+    0 0 10px rgba(248, 113, 113, 0.8),
+    0 0 25px rgba(248, 113, 113, 0.35);
+
+  animation: statusGlow 2.8s ease-in-out infinite;
+}
+
 .status-online-dot::after {
   content: "";
 

@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { assets } from "~/utils/assets";
+import { useServerStatus } from "~/composables/useServerStatus";
+
+const { status, playerCount } = useServerStatus();
 </script>
 
 <template>
@@ -65,10 +68,10 @@ import { assets } from "~/utils/assets";
             <div
               class="mb-5 inline-flex max-w-full items-center gap-3 rounded-full border border-violet-500/20 bg-black/30 px-4 py-2 backdrop-blur-md sm:mb-6 sm:px-5"
             >
-              <div class="status-online-dot h-2.5 w-2.5 rounded-full" />
+              <div :class="[status === 'online' ? 'status-online-dot' : 'status-offline-dot', 'h-2.5 w-2.5 rounded-full']" />
 
               <span class="text-xs text-zinc-300 sm:text-sm">
-                Server Online • 124 Players
+                Server {{ status === 'online' ? 'Online' : 'Offline' }} • {{ playerCount }} Players
               </span>
             </div>
           </div>
