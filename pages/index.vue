@@ -9,5 +9,6 @@ import SectionsHowToPlaySection from "~/components/sections/HowToPlaySection.vue
     <SectionsLeaderboardSection />
     <SectionsHowToPlaySection />
     <SectionsCommunitySection />
+    <SectionsFooterSection />
   </main>
 </template>
