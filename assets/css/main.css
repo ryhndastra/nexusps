@@ -780,6 +780,17 @@ img {
   color: rgba(255, 255, 255, 0.72);
 }
 
+.tutorial-section .step-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tutorial-section .step-text {
+  display: block;
+}
+
 .tutorial-section .step-num {
   width: 34px;
   height: 34px;
@@ -800,6 +811,274 @@ img {
   background: rgba(139, 92, 246, 0.18);
 
   border: 1px solid rgba(139, 92, 246, 0.24);
+}
+
+.tutorial-section .download-step-item {
+  align-items: stretch;
+}
+
+.tutorial-section .copy-step-item {
+  align-items: stretch;
+}
+
+.tutorial-section .download-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 18px 18px 16px;
+
+  border-radius: 22px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(20, 11, 38, 0.95),
+    rgba(8, 5, 18, 0.98)
+  );
+
+  border: 1px solid rgba(139, 92, 246, 0.18);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 16px 34px rgba(0, 0, 0, 0.22);
+}
+
+.tutorial-section .copy-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  padding: 18px;
+
+  border-radius: 22px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(16, 11, 28, 0.96),
+    rgba(8, 5, 18, 0.98)
+  );
+
+  border: 1px solid rgba(139, 92, 246, 0.14);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 16px 34px rgba(0, 0, 0, 0.18);
+}
+
+.tutorial-section .copy-box__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tutorial-section .copy-box__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: rgba(196, 181, 253, 0.82);
+}
+
+.tutorial-section .copy-box__title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  color: white;
+}
+
+.tutorial-section .copy-box__field {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-top: 2px;
+  padding: 12px 14px;
+
+  border-radius: 14px;
+
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(139, 92, 246, 0.18);
+}
+
+.tutorial-section .copy-box__value {
+  min-width: 0;
+  flex: 1;
+
+  overflow: visible;
+
+  color: #c4b5fd;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.tutorial-section .copy-box__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+
+  padding: 10px 14px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(139, 92, 246, 0.32);
+  background: linear-gradient(
+    180deg,
+    rgba(139, 92, 246, 0.18),
+    rgba(91, 33, 182, 0.08)
+  );
+
+  color: #ddd6fe;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tutorial-section .copy-box__button:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(196, 181, 253, 0.55);
+
+  background: linear-gradient(
+    180deg,
+    rgba(139, 92, 246, 0.26),
+    rgba(91, 33, 182, 0.14)
+  );
+
+  color: #ffffff;
+
+  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.18);
+}
+
+.tutorial-section .copy-box__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.tutorial-section .download-box__media {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tutorial-section .download-box__image {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  border-radius: 16px;
+
+  object-fit: cover;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tutorial-section .download-box__copy {
+  min-width: 0;
+}
+
+.tutorial-section .download-box__eyebrow {
+  margin-bottom: 4px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: rgba(196, 181, 253, 0.72);
+}
+
+.tutorial-section .download-box__title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  color: white;
+}
+
+.tutorial-section .download-box__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+
+  padding: 11px 16px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(139, 92, 246, 0.32);
+
+  background: linear-gradient(
+    180deg,
+    rgba(139, 92, 246, 0.18),
+    rgba(91, 33, 182, 0.08)
+  );
+
+  color: #ddd6fe;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tutorial-section .download-box__button:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(196, 181, 253, 0.55);
+
+  background: linear-gradient(
+    180deg,
+    rgba(139, 92, 246, 0.26),
+    rgba(91, 33, 182, 0.14)
+  );
+
+  color: #ffffff;
+
+  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.18);
+}
+
+.tutorial-section .download-box__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.tutorial-section .step-link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+
+  color: #c4b5fd;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  transition: color 0.25s ease;
+}
+
+.tutorial-section .step-link:hover {
+  color: #ddd6fe;
 }
 
 /* ===== Transition ===== */
@@ -873,6 +1152,47 @@ img {
   .tutorial-section .step-item {
     font-size: 15px;
   }
+
+  .tutorial-section .download-box {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .tutorial-section .download-box__image {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+  }
+
+  .tutorial-section .download-box__title {
+    font-size: 15px;
+  }
+
+  .tutorial-section .download-box__image {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+  }
+
+  .tutorial-section .copy-box {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .tutorial-section .copy-box__field {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tutorial-section .copy-box__value {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .tutorial-section .copy-box__button {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 640px) {
@@ -929,5 +1249,26 @@ img {
     height: 30px;
 
     font-size: 13px;
+  }
+
+  .tutorial-section .step-content {
+    gap: 12px;
+  }
+
+  .tutorial-section .download-box__media {
+    align-items: flex-start;
+  }
+
+  .tutorial-section .download-box__media {
+    align-items: flex-start;
+  }
+
+  .tutorial-section .download-box__button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tutorial-section .copy-box__field {
+    gap: 10px;
   }
 }

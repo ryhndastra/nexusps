@@ -4,7 +4,7 @@ import { assets } from "~/utils/assets";
 
 const activeTab = ref<"discord" | "whatsapp">("discord");
 
-const whatsappLink = "https://chat.whatsapp.com/YOUR_GROUP_LINK";
+const whatsappLink = "https://chat.whatsapp.com/C3sRvriWkIkCmIoNFqtVBp";
 </script>
 
 <template>
@@ -245,7 +245,7 @@ const whatsappLink = "https://chat.whatsapp.com/YOUR_GROUP_LINK";
                     >
                       Discord Hub
                     </p>
-                    <h3 class="mt-3 text-3xl font-black">Live Galaxy Chat</h3>
+                    <h3 class="mt-3 text-3xl font-black">Discord Server</h3>
                   </div>
 
                   <iframe
@@ -292,7 +292,7 @@ const whatsappLink = "https://chat.whatsapp.com/YOUR_GROUP_LINK";
                       <p
                         class="text-xs uppercase tracking-[0.3em] text-emerald-300/70"
                       >
-                        WhatsApp Relay
+                        WhatsApp Group
                       </p>
                       <h3 class="mt-3 text-4xl font-black leading-tight">
                         Instant Updates
